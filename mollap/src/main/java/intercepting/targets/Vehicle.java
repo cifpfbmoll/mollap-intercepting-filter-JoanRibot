@@ -4,6 +4,6 @@ public class Vehicle implements Target {
 
     @Override
     public void execution(String name){
-        print("Door is open" + name.toString())
+        System.out.println("Door is open" + name)
     }
 }

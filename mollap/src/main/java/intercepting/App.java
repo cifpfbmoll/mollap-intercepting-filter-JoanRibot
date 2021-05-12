@@ -1,10 +1,10 @@
 package intercepting;
 
-import intercepting.administrador.ProgramadorTasques;
+import intercepting.administrator.TasksProgrammer;
 import intercepting.clients.Mollapp;
-import intercepting.filtres.Autoritzacio;
+import intercepting.filters.Authorization;
 import intercepting.targets.Vehicle;
-import intercepting.filtres.Autenticacio;
+import intercepting.filters.Authentication;
 
 public final class App {
     public static void main(String[] args) {
@@ -15,14 +15,14 @@ public final class App {
          * des de vehicles a qualsevol cosa que admiteix
          * la recepció d'un missatge.
          */
-        ProgramadorTasques programadorTasques = new ProgramadorTasques(new Vehicle());
+        TasksProgrammer tasksProgrammer = new TasksProgrammer(new Vehicle());
 
         /**
          * Afegir al sistema les tasques que volem que el sistema
          * executi al rebre la petició del client.
          */
-        programadorTasques.setTasca(new Autenticacio());
-        programadorTasques.setTasca(new Autoritzacio());
+        tasksProgrammer.setTask(new Authentication());
+        tasksProgrammer.setTask(new Authentication());
 
         /**
          * Configuració de l'app client per a que
@@ -30,7 +30,7 @@ public final class App {
          * enviï el misstage al sistema.
          */
         Mollapp mollapp = new Mollapp();
-        mollapp.setProgramadorTasques(programadorTasques);
-        mollapp.enviarPeticio("Francesc");
+        mollapp.setTasksProgrammer(tasksProgrammer);
+        mollapp.sendRequest("Francesc");
     }
 }
