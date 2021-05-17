@@ -1,9 +1,9 @@
+package edu.pong.targets;
+
 public class Vehicle implements Target {
     
-    public Vehicle();
-
     @Override
     public void execution(String name){
-        System.out.println("Door is open" + name)
+        System.out.println("Door is open" + name);
     }
 }

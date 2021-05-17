@@ -1,4 +1,4 @@
-package intercepting;
+package edu.pong;
 
 import static org.junit.Assert.assertTrue;
 
